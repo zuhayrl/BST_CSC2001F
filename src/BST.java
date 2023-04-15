@@ -61,7 +61,7 @@ public class BST{
     //print usernames.
     public void preorder(Node root){
         if (root == null){return;}
-        System.out.println(root.account.getUsername());
+        System.out.println(root.getUsername());
         preorder(root.left);
         preorder(root.right);
     }
@@ -94,7 +94,7 @@ public class BST{
     }
 
     //testing
-    /*
+    
     public static void main(String[] args){
         BST bst = new BST();
         Account a1 = new Account("1", "im 1");
@@ -111,11 +111,12 @@ public class BST{
         bst.insert(a3);
 
         bst.preorder();
-
-        System.out.println(bst.search("7"));
+        boolean exists = bst.search("6");
+        if(exists){bst.find("6").displayDesc();}
+        else{System.out.println("DNE");}
 
 
     }
-    */
+    
 
 }

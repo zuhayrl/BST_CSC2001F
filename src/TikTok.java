@@ -5,30 +5,39 @@ import java.util.Scanner;
 
 public class TikTok {//start of program
 
+    //initialise bst and other global vars
+    static Scanner keyboard = new Scanner(System.in);
+    static BST bst = new BST();
+
     //1
     static void profile_desc(){
-        Scanner keyboard = new Scanner(System.in);
         System.out.print("Enter the account name: ");
         String username = keyboard.next();
 
-        /*
-         * BST code goes here
-         */
+        //BST code
+        boolean exists; //check if the account exists
+
+        exists = bst.search(username);
+
+        if (exists){bst.find(username).displayDesc();}
+        else {System.out.println("Sorry, this account does not exist.");}
+
+        //display menu 
+        menu();
+            
         
     }
 
     //2
     static void list_acc(){
-        Scanner keyboard = new Scanner(System.in);
         System.out.println("Accounts:");
-        /*
-         * BST code goes here
-         */        
+        
+        //bst code
+        bst.preorder();        
     }
 
     //3
     static void create_acc(){
-        Scanner keyboard = new Scanner(System.in);
         System.out.println("Create an Account");
 
         System.out.print("Enter username: ");
@@ -49,7 +58,6 @@ public class TikTok {//start of program
 
     //4
     static void delete_acc(){
-        Scanner keyboard = new Scanner(System.in);
         System.out.print("Enter user you would like to delete: ");
         String username = keyboard.next();
 
@@ -60,7 +68,6 @@ public class TikTok {//start of program
 
     //5
     static void display_posts(){
-        Scanner keyboard = new Scanner(System.in);
         System.out.print("Enter the account name: ");
         String username = keyboard.next();
 
@@ -73,7 +80,6 @@ public class TikTok {//start of program
 
     //6
     static void add_post(){
-        Scanner keyboard = new Scanner(System.in);
         System.out.print("Enter the account name: ");
         String username = keyboard.next();
 
@@ -94,7 +100,6 @@ public class TikTok {//start of program
 
     //7
     static void load_action(){
-        Scanner keyboard = new Scanner(System.in);
         System.out.println("7 laod_action");
     }
 
@@ -106,7 +111,6 @@ public class TikTok {//start of program
 
     //menu creation
     static void menu(){
-        Scanner keyboard = new Scanner(System.in);
         int choice;
 
         System.out.println("Choose an action from the menu:");
@@ -141,7 +145,9 @@ public class TikTok {//start of program
     }
 
     public static void main(String[] args)  {//Main function starts here
-
+        //initialise all necessary var and classes
+        
+        //start program functionalitys
         menu();
 
     }//void end

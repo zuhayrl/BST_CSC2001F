@@ -77,11 +77,17 @@ public class TikTok {//start of program
         System.out.print("Enter the account name: ");
         String username = keyboard.next();
 
-        /*
-         * BST code goes here
-         */
+        //bst code
+        boolean exists; //check if the account exists
 
-         //display using displayPosts()
+        exists = bst.search(username);
+
+        if (exists){bst.find(username).displayPosts();}
+        else {System.out.println("Sorry, this account does not exist.");}
+
+        //display menu 
+        menu();
+
     }
 
     //6
@@ -97,11 +103,21 @@ public class TikTok {//start of program
         System.out.print("Enter a post description: ");
         String desc = keyboard.next();
 
-        Post post = new Post(title, desc);
+        //BST code
+        if (username.isEmpty() || title.isEmpty() || desc.isEmpty()){
+            System.out.println("Invlaid input, post was not uploaded");}
+        else {
+            boolean exists; //check if the account exists
 
-        /*
-         * BST code goes here
-         */
+            exists = bst.search(username);
+
+            if (exists){bst.find(username).addPost(title, desc);}
+            else {System.out.println("Sorry, this account does not exist.");}
+        }
+
+        //display menu 
+        menu();
+
     }
 
     //7

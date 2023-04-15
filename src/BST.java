@@ -126,7 +126,7 @@ public class BST{
     }
 
     //testing
-    
+    /*
     public static void main(String[] args){
         BST bst = new BST();
         Account a1 = new Account("1", "im 1");
@@ -152,6 +152,6 @@ public class BST{
 
 
     }
-    
+    */
 
 }

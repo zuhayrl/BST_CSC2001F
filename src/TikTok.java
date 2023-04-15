@@ -61,7 +61,6 @@ public class TikTok {//start of program
     //5
     static void display_posts(){
         Scanner keyboard = new Scanner(System.in);
-        System.out.println("5 display_posts");
         System.out.print("Enter the account name: ");
         String username = keyboard.next();
 
@@ -75,6 +74,9 @@ public class TikTok {//start of program
     //6
     static void add_post(){
         Scanner keyboard = new Scanner(System.in);
+        System.out.print("Enter the account name: ");
+        String username = keyboard.next();
+
         System.out.println("Create a Post");
 
         System.out.print("Enter Title: ");
@@ -98,7 +100,7 @@ public class TikTok {//start of program
 
     //8
     static void exit_prog(){
-        System.out.println("8 Exit");
+        System.out.println("Exitted, have a nice day");
         System.exit(0);
     }
 

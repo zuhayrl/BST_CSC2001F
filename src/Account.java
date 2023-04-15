@@ -19,6 +19,12 @@ public class Account {
     public String getUserDesc() {return userDesc;}
     public ArrayList<Post> getPosts() {return posts;} // not gnna use this its just here for consistancy
 
+    //toString
+    public String toString(){
+        return("Username: " + getUsername() + "\n" + "User Description: " + getUserDesc() +
+               "\n" + "User has: " + Integer.toString(posts.size()) + " posts." );
+    }
+
     //display posts will return the posts formatted to look nice
     public void displayPosts(){
         //loop through the arraylist in reverse to get the posts from oldest to newest

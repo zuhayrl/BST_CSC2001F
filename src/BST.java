@@ -1,11 +1,13 @@
 package src;
 //import java.util.ArrayList;
 
+import java.lang.annotation.Retention;
+
 public class BST{
     //creating node class (each node is an account)
     public class Node{
         //instance var
-        private Account account;       
+        public Account account;       
         public Node left, right;
 
         //constructor
@@ -41,7 +43,7 @@ public class BST{
             return new Node(account);
         }
         // create compare variable
-        int iCompare = account.getUsername().compareTo(node.account.getUsername());
+        int iCompare = account.getUsername().compareTo(node.getUsername());
 
 
         //checking for > or <
@@ -63,9 +65,32 @@ public class BST{
         preorder(root.left);
         preorder(root.right);
     }
+    //search to see if account exists
+    public boolean search(String username){return search(this.root, username);}
 
-    //search
-    
+    public boolean search(Node root, String username){
+        if (root==null){return false;}
+
+        int iCompare = username.compareTo(root.getUsername());
+        if (root.getUsername() == username){return true;}
+        else if (iCompare > 0){return search(root.right, username);}
+        else {return search(root.left, username);}
+
+    }
+
+
+    //find and collect account data
+    public Account find(String username){return find(this.root, username);}
+
+    public Account find(Node root, String username){
+        //no need for null check beacuse it was done in search()
+        // this function only runs if search()=true       
+        int iCompare = username.compareTo(root.getUsername());
+
+        if (iCompare > 0){return find(root.right, username);}
+        else if (iCompare < 0){return find(root.left, username);}
+        else return root.account;
+    }
 
     //testing
     public static void main(String[] args){
@@ -84,6 +109,8 @@ public class BST{
         bst.insert(a3);
 
         bst.preorder();
+
+
     }
 
 

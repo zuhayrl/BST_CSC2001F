@@ -25,7 +25,7 @@ public class BST{
     public Node root;
 
     //constructor sets root to Null by default
-    public BST(Node root) {
+    public BST() {
         this.root = null;
     }
 
@@ -41,7 +41,7 @@ public class BST{
             return new Node(account);
         }
         // create compare variable
-        int iCompare = account.getUsername().compareTo(node.account.getUsername())
+        int iCompare = account.getUsername().compareTo(node.account.getUsername());
 
 
         //checking for > or <
@@ -56,12 +56,34 @@ public class BST{
         preorder(root);
         System.out.println();
     }
-
+    //print usernames.
     public void preorder(Node root){
         if (root == null){return;}
         System.out.println(root.account.getUsername());
         preorder(root.left);
         preorder(root.right);
+    }
+
+    //search
+    
+
+    //testing
+    public static void main(String[] args){
+        BST bst = new BST();
+        Account a1 = new Account("1", "im 1");
+        Account a2 = new Account("2", "im 2");
+        Account a3 = new Account("3", "im 3");
+        Account a4 = new Account("4", "im 4");
+        Account a5 = new Account("5", "im 5");
+        Account a6 = new Account("6", "im 6");
+        bst.insert(a1);
+        bst.insert(a4);
+        bst.insert(a2);
+        bst.insert(a6);
+        bst.insert(a5);
+        bst.insert(a3);
+
+        bst.preorder();
     }
 
 

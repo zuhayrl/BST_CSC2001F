@@ -63,9 +63,13 @@ public class TikTok {//start of program
         System.out.print("Enter user you would like to delete: ");
         String username = keyboard.next();
 
-        /*
-         * BST code goes here
-         */
+        //BST code
+        if (username.isEmpty()){
+            System.out.println("Invlaid input, no account was deleted");}
+        else {
+            bst.delete(username);
+            System.out.println("Account deleted successfully");
+        }
     }
 
     //5

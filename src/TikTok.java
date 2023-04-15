@@ -14,11 +14,10 @@ public class TikTok {//start of program
         String username = keyboard.next();
 
         //BST code
-        boolean exists; //check if the account exists
+         //check if the account exists
+        boolean exists = bst.search(username);
 
-        exists = bst.search(username);
-
-        if (exists){bst.find(username).displayDesc();}
+        if (exists==true){bst.find(username).displayDesc();}
         else {System.out.println("Sorry, this account does not exist.");}
 
         //display menu 
@@ -32,7 +31,8 @@ public class TikTok {//start of program
         System.out.println("Accounts:");
         
         //bst code
-        bst.preorder();        
+        bst.preorder(); 
+        menu();       
     }
 
     //3
@@ -43,7 +43,8 @@ public class TikTok {//start of program
         String username = keyboard.next();
 
         System.out.print("Enter a user description: ");
-        String desc = keyboard.next();
+        keyboard.nextLine();
+        String desc = keyboard.nextLine();
 
         Account account = new Account(username, desc);
 
@@ -70,6 +71,8 @@ public class TikTok {//start of program
             bst.delete(username);
             System.out.println("Account deleted successfully");
         }
+
+        menu();
     }
 
     //5
@@ -98,10 +101,12 @@ public class TikTok {//start of program
         System.out.println("Create a Post");
 
         System.out.print("Enter Title: ");
-        String title = keyboard.next();
+        keyboard.nextLine();
+        String title = keyboard.nextLine();
 
         System.out.print("Enter a post description: ");
-        String desc = keyboard.next();
+        keyboard.nextLine();
+        String desc = keyboard.nextLine();
 
         //BST code
         if (username.isEmpty() || title.isEmpty() || desc.isEmpty()){
@@ -122,12 +127,14 @@ public class TikTok {//start of program
 
     //7
     static void load_action(){
-        System.out.println("7 laod_action");
+        System.out.println("7 load_action");
+
+        menu();
     }
 
     //8
     static void exit_prog(){
-        System.out.println("Exitted, have a nice day");
+        System.out.println("Exited, have a nice day");
         System.exit(0);
     }
 
@@ -169,8 +176,15 @@ public class TikTok {//start of program
     public static void main(String[] args)  {//Main function starts here
         //initialise all necessary var and classes
         
-        //start program functionalitys
+        //start program functionality
         menu();
+
+        //testing
+        /*
+        Account a1 = new Account("zuhayr", "im an idiot");
+        bst.insert(a1);
+        System.out.println(bst.search(a1.getUsername()));
+        */
 
     }//void end
 

@@ -126,7 +126,7 @@ public class BST{
     }
 
     //testing
-    /*
+    
     public static void main(String[] args){
         BST bst = new BST();
         Account a1 = new Account("1", "im 1");
@@ -143,15 +143,13 @@ public class BST{
         bst.insert(a3);
 
         bst.preorder();
-        boolean exists = bst.search("6");
-        if(exists){bst.find("6").displayDesc();}
+        String username = "6" ;
+        boolean exists = bst.search(username);
+        if(exists){bst.find(username).displayDesc();}
         else{System.out.println("DNE");}
-
-        bst.delete("2");
-        bst.preorder();
 
 
     }
-    */
+    
 
 }

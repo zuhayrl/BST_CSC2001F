@@ -29,6 +29,40 @@ public class BST{
         this.root = null;
     }
 
-    
+    //inserts a new user
+    public void insert(Account account){
+        this.root = insert(root, account);
+    }
+
+    //node insert into tree
+    public Node insert(Node node, Account account){
+        //insert new data if node is null
+        if (node == null){
+            return new Node(account);
+        }
+        // create compare variable
+        int iCompare = account.getUsername().compareTo(node.account.getUsername())
+
+
+        //checking for > or <
+        if (iCompare < 0){node.left = insert(node.left, account);}
+        else if (iCompare > 0){node.right = insert(node.right, account);}
+        
+        return node;  
+    }
+
+    //Traversal
+    public void preorder(){
+        preorder(root);
+        System.out.println();
+    }
+
+    public void preorder(Node root){
+        if (root == null){return;}
+        System.out.println(root.account.getUsername());
+        preorder(root.left);
+        preorder(root.right);
+    }
+
 
 }

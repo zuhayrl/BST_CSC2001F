@@ -1,7 +1,7 @@
 package src;
 //import java.util.ArrayList;
 
-public class BST {
+public class BST{
     //creating node class (each node is an account)
     public class Node{
         //instance var

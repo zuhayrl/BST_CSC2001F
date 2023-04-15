@@ -1,7 +1,7 @@
 package src;
 //import java.util.ArrayList;
 
-import java.lang.annotation.Retention;
+
 
 public class BST{
     //creating node class (each node is an account)
@@ -84,7 +84,8 @@ public class BST{
 
     public Account find(Node root, String username){
         //no need for null check beacuse it was done in search()
-        // this function only runs if search()=true       
+        // this function only runs if search()=true
+        //ie we know if the account exists already       
         int iCompare = username.compareTo(root.getUsername());
 
         if (iCompare > 0){return find(root.right, username);}
@@ -93,6 +94,7 @@ public class BST{
     }
 
     //testing
+    /*
     public static void main(String[] args){
         BST bst = new BST();
         Account a1 = new Account("1", "im 1");
@@ -110,8 +112,10 @@ public class BST{
 
         bst.preorder();
 
+        System.out.println(bst.search("7"));
+
 
     }
-
+    */
 
 }

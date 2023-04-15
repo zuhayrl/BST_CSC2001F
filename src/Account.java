@@ -1,3 +1,8 @@
+/*
+ * Zuhayr Loonat
+ * CSC2001F Assignment 4
+ */
+
 package src;
 import java.util.ArrayList;
 

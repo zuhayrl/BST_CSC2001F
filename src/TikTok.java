@@ -1,3 +1,7 @@
+/*
+ * Zuhayr Loonat
+ * CSC2001F Assignment 4
+ */
 package src;
 
 //imports
@@ -15,12 +19,12 @@ public class TikTok {//start of program
 
         //BST code
          //check if the account exists
-        boolean exists = bst.search(username);
 
-        if (exists==true){bst.find(username).displayDesc();}
-        else {System.out.println("Sorry, this account does not exist.");}
+        try {bst.find(username).displayDesc();}
+        catch (Exception e){System.out.println("Sorry, this account does not exist.");}
 
         //display menu 
+        System.out.println("\n");
         menu();
             
         
@@ -32,6 +36,7 @@ public class TikTok {//start of program
         
         //bst code
         bst.preorder(); 
+        System.out.println("\n");
         menu();       
     }
 
@@ -56,6 +61,7 @@ public class TikTok {//start of program
             System.out.println("Account added successfully");
         }
 
+        System.out.println("\n");
         menu();
     }
 
@@ -68,10 +74,12 @@ public class TikTok {//start of program
         if (username.isEmpty()){
             System.out.println("Invlaid input, no account was deleted");}
         else {
-            bst.delete(username);
-            System.out.println("Account deleted successfully");
+            try{bst.delete(username);
+            System.out.println("Account deleted successfully");}
+            catch(Exception e){System.out.println("Sorry, this account does not exist.");}
         }
 
+        System.out.println("\n");
         menu();
     }
 
@@ -81,46 +89,44 @@ public class TikTok {//start of program
         String username = keyboard.next();
 
         //bst code
-        boolean exists; //check if the account exists
+        //check if the account exists
 
-        exists = bst.search(username);
+        try{bst.find(username).displayPosts();}
+        catch(Exception e) {System.out.println("Sorry, this account does not exist.");}
 
-        if (exists){bst.find(username).displayPosts();}
-        else {System.out.println("Sorry, this account does not exist.");}
-
-        //display menu 
+        //display menu
+        System.out.println("\n"); 
         menu();
 
     }
 
     //6
     static void add_post(){
-        System.out.print("Enter the account name: ");
-        String username = keyboard.next();
 
         System.out.println("Create a Post");
+
+        System.out.print("Enter the account name: ");
+        String username = keyboard.next();
 
         System.out.print("Enter Title: ");
         keyboard.nextLine();
         String title = keyboard.nextLine();
 
-        System.out.print("Enter a post description: ");
-        keyboard.nextLine();
-        String desc = keyboard.nextLine();
+        System.out.print("Enter a post file name: ");
+        //keyboard.next();
+        String fileName = keyboard.nextLine();
 
         //BST code
-        if (username.isEmpty() || title.isEmpty() || desc.isEmpty()){
+        if (username.isEmpty() || title.isEmpty() || fileName.isEmpty()){
             System.out.println("Invlaid input, post was not uploaded");}
         else {
-            boolean exists; //check if the account exists
-
-            exists = bst.search(username);
-
-            if (exists){bst.find(username).addPost(title, desc);}
-            else {System.out.println("Sorry, this account does not exist.");}
+            //check if the account exists
+            try {bst.find(username).addPost(title, fileName);}
+            catch(Exception e) {System.out.println("Sorry, this account does not exist.");}
         }
 
         //display menu 
+        System.out.println("\n");
         menu();
 
     }
@@ -129,6 +135,7 @@ public class TikTok {//start of program
     static void load_action(){
         System.out.println("7 load_action");
 
+        System.out.println("\n");
         menu();
     }
 
@@ -154,23 +161,23 @@ public class TikTok {//start of program
         System.out.println("8. Quit");
 
         System.out.print("Enter your choice: ");
-        choice = Integer.parseInt(keyboard.next());
+        try{
+            choice = Integer.parseInt(keyboard.next());
 
-        System.out.println("\n");
+            System.out.println("\n");
 
-
-
-        switch (choice) {
-            case 1: profile_desc();break;
-            case 2: list_acc();break;
-            case 3: create_acc();break;
-            case 4: delete_acc();break;
-            case 5: display_posts();break;
-            case 6: add_post();break;
-            case 7: load_action();break;
-            case 8: exit_prog();break;
-
+            switch (choice) {
+                case 1: profile_desc();break;
+                case 2: list_acc();break;
+                case 3: create_acc();break;
+                case 4: delete_acc();break;
+                case 5: display_posts();break;
+                case 6: add_post();break;
+                case 7: load_action();break;
+                case 8: exit_prog();break;
+            }
         }
+        catch(Exception e){System.out.println("Invalid choice please try again.\n");menu();}
     }
 
     public static void main(String[] args)  {//Main function starts here
@@ -180,11 +187,11 @@ public class TikTok {//start of program
         menu();
 
         //testing
-        /*
-        Account a1 = new Account("zuhayr", "im an idiot");
-        bst.insert(a1);
-        System.out.println(bst.search(a1.getUsername()));
-        */
+        //String text = keyboard.next();
+        //Account a1 = new Account(text, "im an idiot");
+        //bst.insert(a1);
+        //System.out.println(bst.search(text));
+        
 
     }//void end
 

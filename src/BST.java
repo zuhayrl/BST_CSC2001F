@@ -93,6 +93,38 @@ public class BST{
         else return root.account;
     }
 
+    //delete a node
+    public void delete(String username){root = delete(root, username);}
+
+    private Node delete(Node root, String username){
+        if (root==null){return root;}
+        //compare values
+        int iCompare = username.compareTo(root.getUsername());
+        //recur down
+        if (iCompare < 0){root.left = delete(root.left, username);}
+        else if (iCompare > 0){root.right = delete(root.right, username);}
+        //we are at the point of deletion node
+        else {
+            //node with one or no child
+            if (root.left==null){return root.right;}
+            else if (root.right==null){return root.left;}
+
+            root.account = minValue(root.right);
+            root.right = delete(root.right, root.getUsername());
+
+        }
+        return root;
+    }
+
+    private Account minValue(Node root){
+        Account minv = root.account;
+        while (root.left != null){
+            minv = root.left.account;
+            root = root.left;
+        }
+        return minv;
+    }
+
     //testing
     
     public static void main(String[] args){
@@ -114,6 +146,9 @@ public class BST{
         boolean exists = bst.search("6");
         if(exists){bst.find("6").displayDesc();}
         else{System.out.println("DNE");}
+
+        bst.delete("2");
+        bst.preorder();
 
 
     }

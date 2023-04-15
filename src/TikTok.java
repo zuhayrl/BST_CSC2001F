@@ -4,6 +4,9 @@ package src;
 import java.util.Scanner;
 
 public class TikTok {//start of program
+    //varibales to be used (global)
+    static BST bst = new BST();
+    static Scanner keyboard = new Scanner(System.in);
 
     //1
     static void profile_desc(){
@@ -45,10 +48,14 @@ public class TikTok {//start of program
         Account account = new Account(username, desc);
 
         //BST Code
-        if (username.isBlank())
+        if (username.isEmpty() || desc.isEmpty()){
+            System.out.println("Invlaid input, account was not created");}
+        else {
+            bst.insert(account);
+            System.out.println("Account added successfully");
+        }
 
-        
-
+        menu();
     }
 
     //4

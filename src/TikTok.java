@@ -5,10 +5,6 @@ import java.util.Scanner;
 
 public class TikTok {//start of program
 
-    //initialise bst and other global vars
-    static Scanner keyboard = new Scanner(System.in);
-    static BST bst = new BST();
-
     //1
     static void profile_desc(){
         System.out.print("Enter the account name: ");
@@ -48,9 +44,8 @@ public class TikTok {//start of program
 
         Account account = new Account(username, desc);
 
-        /*
-         * BST code goes here
-         */
+        //BST Code
+        if (username.isBlank())
 
         
 

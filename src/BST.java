@@ -37,7 +37,7 @@ public class BST{
     }
 
     //node insert into tree
-    public Node insert(Node node, Account account){
+    private Node insert(Node node, Account account){
         //insert new data if node is null
         if (node == null){
             return new Node(account);
@@ -59,7 +59,7 @@ public class BST{
         System.out.println();
     }
     //print usernames.
-    public void preorder(Node root){
+    private void preorder(Node root){
         if (root == null){return;}
         System.out.println(root.getUsername());
         preorder(root.left);
@@ -68,7 +68,7 @@ public class BST{
     //search to see if account exists
     public boolean search(String username){return search(this.root, username);}
 
-    public boolean search(Node root, String username){
+    private boolean search(Node root, String username){
         if (root==null){return false;}
 
         int iCompare = username.compareTo(root.getUsername());
@@ -82,7 +82,7 @@ public class BST{
     //find and collect account data
     public Account find(String username){return find(this.root, username);}
 
-    public Account find(Node root, String username){
+    private Account find(Node root, String username){
         //no need for null check beacuse it was done in search()
         // this function only runs if search()=true
         //ie we know if the account exists already       

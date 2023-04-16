@@ -16,7 +16,7 @@ public class TikTok {//start of program
 
     //1
     static void profile_desc(){
-        System.out.print("Get account description");
+        System.out.println("Get account description");
         System.out.print("Enter the account name: ");
         String username = keyboard.next();
 
@@ -35,7 +35,7 @@ public class TikTok {//start of program
 
     //2
     static void list_acc(){
-        System.out.print("List Accounts");
+        System.out.println("List Accounts");
         System.out.println("Accounts:");
         
         //bst code
@@ -71,7 +71,7 @@ public class TikTok {//start of program
 
     //4
     static void delete_acc(){
-        System.out.print("Delete an Account");
+        System.out.println("Delete an Account");
         System.out.print("Enter user you would like to delete: ");
         String username = keyboard.next();
 
@@ -90,7 +90,7 @@ public class TikTok {//start of program
 
     //5
     static void display_posts(){
-        System.out.print("Display User's Posts");
+        System.out.println("Display User's Posts");
         System.out.print("Enter the account name: ");
         String username = keyboard.next();
 
@@ -139,10 +139,11 @@ public class TikTok {//start of program
 
     //7
     static void load_action(){
-        System.out.println("Load from textfile");
-
-        String textFile = "datasettst.txt"; //find etxtfile
-
+        System.out.println("Load from text file");
+        //find textfile
+        String textFile = "C:\\Users\\zuhay\\OneDrive\\My Documents\\Git\\Github\\BST_CSC2001F\\src\\dataset.txt"; 
+        //String textFile = "dataset.txt";
+      
         try (BufferedReader br = new BufferedReader(new FileReader(textFile))){
             String line;
             //read each line
@@ -183,7 +184,7 @@ public class TikTok {//start of program
 
                     //insert to bst
                     try {bst.find(username).addPost(title, fileName, Integer.parseInt(likes));}
-                    catch(Exception e) {System.out.println("Sorry, this account does not exist.");}
+                    catch(Exception e) {}
                 }
 
             }

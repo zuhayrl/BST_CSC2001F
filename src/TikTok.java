@@ -15,6 +15,10 @@ public class TikTok {//start of program
     static Scanner keyboard = new Scanner(System.in);
 
     //1
+    /*
+    * Get account description and display it in BST. This is a menu that allows you to select an
+    * and get a description
+    */
     static void profile_desc(){
         System.out.println("Get account description");
         System.out.print("Enter the account name: ");
@@ -34,6 +38,9 @@ public class TikTok {//start of program
     }
 
     //2
+    /**
+    * Lists account in BST. This is a recursive function
+    */
     static void list_acc(){
         System.out.println("List Accounts");
         System.out.println("Accounts:");
@@ -45,6 +52,9 @@ public class TikTok {//start of program
     }
 
     //3
+    /**
+    * Create an Account from user input and insert it into BST.
+    */
     static void create_acc(){
         System.out.println("Create an Account");
 
@@ -58,6 +68,7 @@ public class TikTok {//start of program
         Account account = new Account(username, desc);
 
         //BST Code
+        // Insert account into the database.
         if (username.isEmpty() || desc.isEmpty()){
             System.out.println("Invlaid input, account was not created");}
         else {
@@ -70,12 +81,16 @@ public class TikTok {//start of program
     }
 
     //4
+    /**
+    * Delete an account from BST and display success or failure message to the user. This is a shortcut for the delete method
+    */
     static void delete_acc(){
         System.out.println("Delete an Account");
         System.out.print("Enter user you would like to delete: ");
         String username = keyboard.next();
 
         //BST code
+        // Delete the account with the given username.
         if (username.isEmpty()){
             System.out.println("Invlaid input, no account was deleted");}
         else {
@@ -89,6 +104,9 @@ public class TikTok {//start of program
     }
 
     //5
+    /**
+    * Display User's Posts, Enter the account name, Check if account exists, Display the posts if it does
+    */
     static void display_posts(){
         System.out.println("Display User's Posts");
         System.out.print("Enter the account name: ");
@@ -107,6 +125,9 @@ public class TikTok {//start of program
     }
 
     //6
+    /**
+    * Adds a post to an account in the BST.This method requires the user to enter the account name
+    */
     static void add_post(){
 
         System.out.println("Create a Post");
@@ -123,6 +144,7 @@ public class TikTok {//start of program
         String fileName = keyboard.nextLine();
 
         //BST code
+        // check input validity
         if (username.isEmpty() || title.isEmpty() || fileName.isEmpty()){
             System.out.println("Invlaid input, post was not uploaded");}
         else {
@@ -138,19 +160,24 @@ public class TikTok {//start of program
     }
 
     //7
+    /**
+    * Load from text file that has lines that tell the app to either create an account or add a post to an acount
+    */
     static void load_action(){
         System.out.println("Load from text file");
         //find textfile
-        String textFile = "C:\\Users\\zuhay\\OneDrive\\My Documents\\Git\\Github\\BST_CSC2001F\\src\\dataset.txt"; 
-        //String textFile = "dataset.txt";
+        //String textFile = "C:\\Users\\zuhay\\OneDrive\\My Documents\\Git\\Github\\BST_CSC2001F\\src\\dataset.txt"; 
+        String textFile = "datasettest.txt";
       
         try (BufferedReader br = new BufferedReader(new FileReader(textFile))){
             String line;
             //read each line
+            // This method reads the line from the input stream.
             while ((line=br.readLine()) != null) {
                 String type = line.substring(0, line.indexOf(" "));
 
                 //create account
+
                 if (type.equals("Create")){
                     //use of string manipulation to choose certain parts of string
                     String data = line.substring(line.indexOf(" ")+1);
@@ -202,12 +229,18 @@ public class TikTok {//start of program
     }
 
     //8
+    /**
+    * Exit program and print message to standard output and exit with 0.
+    */
     static void exit_prog(){
         System.out.println("Exited, have a nice day");
         System.exit(0);
     }
 
     //menu creation
+    /**
+    * Menu for the user to choose an action from the menu and execute the appropriate function based on the choice
+    */
     static void menu(){
         int choice;
 
@@ -228,6 +261,7 @@ public class TikTok {//start of program
 
             System.out.println("\n");
 
+            // The choice of the action to be performed.
             switch (choice) {
                 case 1: profile_desc();break;
                 case 2: list_acc();break;
@@ -242,6 +276,11 @@ public class TikTok {//start of program
         catch(Exception e){System.out.println("Invalid choice please try again.\n");menu();}
     }
 
+    /**
+    * Main function starts here. Initialises all necessary variables and classes.
+    * 
+    * @param args - Command line arguments for
+    */
     public static void main(String[] args)  {//Main function starts here
         //initialise all necessary var and classes
         

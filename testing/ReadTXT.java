@@ -1,4 +1,4 @@
-package src;
+package testing;
 
 //import java.util.Scanner;
 import java.io.BufferedReader;

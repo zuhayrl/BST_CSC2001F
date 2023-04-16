@@ -6,6 +6,8 @@ package src;
 
 //imports
 import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.FileReader;
 
 public class TikTok {//start of program
     //varibales to be used (global)
@@ -14,6 +16,7 @@ public class TikTok {//start of program
 
     //1
     static void profile_desc(){
+        System.out.print("Get account description");
         System.out.print("Enter the account name: ");
         String username = keyboard.next();
 
@@ -32,6 +35,7 @@ public class TikTok {//start of program
 
     //2
     static void list_acc(){
+        System.out.print("List Accounts");
         System.out.println("Accounts:");
         
         //bst code
@@ -67,6 +71,7 @@ public class TikTok {//start of program
 
     //4
     static void delete_acc(){
+        System.out.print("Delete an Account");
         System.out.print("Enter user you would like to delete: ");
         String username = keyboard.next();
 
@@ -85,6 +90,7 @@ public class TikTok {//start of program
 
     //5
     static void display_posts(){
+        System.out.print("Display User's Posts");
         System.out.print("Enter the account name: ");
         String username = keyboard.next();
 
@@ -121,7 +127,7 @@ public class TikTok {//start of program
             System.out.println("Invlaid input, post was not uploaded");}
         else {
             //check if the account exists
-            try {bst.find(username).addPost(title, fileName);}
+            try {bst.find(username).addPost(title, fileName, 0);}
             catch(Exception e) {System.out.println("Sorry, this account does not exist.");}
         }
 
@@ -133,7 +139,62 @@ public class TikTok {//start of program
 
     //7
     static void load_action(){
-        System.out.println("7 load_action");
+        System.out.println("Load from textfile");
+
+        String textFile = "datasettst.txt"; //find etxtfile
+
+        try (BufferedReader br = new BufferedReader(new FileReader(textFile))){
+            String line;
+            //read each line
+            while ((line=br.readLine()) != null) {
+                String type = line.substring(0, line.indexOf(" "));
+
+                //create account
+                if (type.equals("Create")){
+                    //use of string manipulation to choose certain parts of string
+                    String data = line.substring(line.indexOf(" ")+1);
+                    String username = data.substring(0, data.indexOf(" "));
+                    String desc = data.substring(data.indexOf(" ")+1);
+
+                    //System.out.println("Username:"+username);
+                    //System.out.println("Description:"+desc);
+
+                    //insert to bst
+                    Account account = new Account(username, desc);
+                    bst.insert(account);
+
+                    //insert to bst
+                }
+                //add post to account
+                if (type.equals("Add")){
+                    //use of string manipulation to choose certain parts of string
+                    String data = line.substring(line.indexOf(" ")+1);
+                    String username = data.substring(0, data.indexOf(" "));
+                    data = data.substring(data.indexOf(" ")+1);
+                    String fileName = data.substring(0, data.indexOf(" "));
+                    data = data.substring(data.indexOf(" ")+1);
+                    String likes = data.substring(0, data.indexOf(" "));
+                    String title = data.substring(data.indexOf(" ")+1);
+
+                    //System.out.println("Username:"+username);
+                    //System.out.println("File Name:"+fileName);
+                    //System.out.println("Likes:"+likes);
+                    //System.out.println("title:"+title); 
+
+                    //insert to bst
+                    try {bst.find(username).addPost(title, fileName, Integer.parseInt(likes));}
+                    catch(Exception e) {System.out.println("Sorry, this account does not exist.");}
+                }
+
+            }
+            System.out.println("File was read successfully");
+            
+
+        }
+        catch(Exception e){
+            System.out.println("Error: "+ e.getMessage());
+        }
+
 
         System.out.println("\n");
         menu();

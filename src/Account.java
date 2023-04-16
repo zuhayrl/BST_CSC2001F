@@ -46,8 +46,8 @@ public class Account {
     }
 
     //add post
-    public void addPost(String title, String fileName){
-        Post post = new Post(title, fileName);
+    public void addPost(String title, String fileName, int likes){
+        Post post = new Post(title, fileName, likes);
         posts.add(post);
 
     }

@@ -12,13 +12,14 @@ public class Post{
     private int likes;
 
     //constructor
-    public Post(String title, String fileName){
+    public Post(String title, String fileName, int likes){
         int randomNum = ThreadLocalRandom.current().nextInt(0, 100000); 
         // gives random amount of likes coz im lazy
 
         this.title = title;
         this.fileName = fileName;
-        this.likes = randomNum;        
+        if (likes==0){this.likes = randomNum;} 
+        else   {this.likes = likes;}     
     }
 
     //getters

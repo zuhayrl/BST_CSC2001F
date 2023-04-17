@@ -2,7 +2,7 @@
  * Zuhayr Loonat
  * CSC2001F Assignment 4
  */
-package src;
+//package src;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Post{

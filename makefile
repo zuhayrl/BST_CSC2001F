@@ -1,24 +1,22 @@
-#Zuhayr Loonat
-#CSC2001F Assignment 4
-
 JAVAC=/usr/bin/javac
 JAVA=/usr/bin/java
-
-#Directries
+.SUFFIXES: .java .class
 SRCDIR=src
 BINDIR=bin
 
-.SUFFIXES: .java .class
+$(BINDIR)/%.class:$(SRCDIR)/%.java
+	$(JAVAC) -d $(BINDIR)/ -cp $(BINDIR) $<
 
-.java.class:
-	$(JAVAC) $<
+CLASSES=Post.class \
+	Account.class \
+	BST.class \
+	TikTok.class
+CLASS_FILES=$(CLASSES:%.class=$(BINDIR)/%.class)
 
-classes: Post.class \
-         Account.class \
-         BST.class \
-		 TikTok.class
-
-default: $(CLASSES)
+default: $(CLASS_FILES)
 
 clean:
-	rm *.class
+	rm $(BINDIR)/*.class
+
+run: $(CLASS_FILES)
+	$(JAVA) -cp bin TikTok

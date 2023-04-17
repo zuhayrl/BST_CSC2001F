@@ -4,6 +4,7 @@
  */
 package src;
 
+
 //imports
 import java.util.Scanner;
 import java.io.BufferedReader;
@@ -167,7 +168,7 @@ public class TikTok {//start of program
         System.out.println("Load from text file");
         //find textfile
         //String textFile = "C:\\Users\\zuhay\\OneDrive\\My Documents\\Git\\Github\\BST_CSC2001F\\src\\dataset.txt"; 
-        String textFile = "datasettest.txt";
+        String textFile = "dataset.txt";
       
         try (BufferedReader br = new BufferedReader(new FileReader(textFile))){
             String line;

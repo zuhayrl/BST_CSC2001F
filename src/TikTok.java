@@ -120,8 +120,7 @@ public class TikTok {//start of program
         //bst code
         //check if the account exists
 
-        try{bst.find(username).displayPosts();
-        System.out.println("Post added successfully");}
+        try{bst.find(username).displayPosts();}
         catch(Exception e) {System.out.println("Sorry, this account does not exist.");}
 
         //display menu
@@ -155,7 +154,8 @@ public class TikTok {//start of program
             System.out.println("Invlaid input, post was not uploaded");}
         else {
             //check if the account exists
-            try {bst.find(username).addPost(title, fileName, 0);}
+            try {bst.find(username).addPost(title, fileName, 0);
+                System.out.println("Post added successfully");}
             catch(Exception e) {System.out.println("Sorry, this account does not exist.");}
         }
 

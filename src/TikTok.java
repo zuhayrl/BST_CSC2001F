@@ -277,7 +277,7 @@ public class TikTok {//start of program
                 case 6: add_post();break;
                 case 7: load_action();break;
                 case 8: exit_prog();break;
-                default: System.out.println("Invalid input please try again.");
+                default: System.out.println("Invalid input please try again.");menu();
             }
         }
         catch(Exception e){System.out.println("Invalid choice please try again.\n");menu();}

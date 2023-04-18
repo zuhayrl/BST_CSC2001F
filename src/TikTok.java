@@ -95,8 +95,12 @@ public class TikTok {//start of program
         if (username.isEmpty()){
             System.out.println("Invlaid input, no account was deleted");}
         else {
-            try{bst.delete(username);
-            System.out.println("Account deleted successfully");}
+            try{String exists = bst.find(username).getUsername();
+                if (exists.equals(username)){
+                    bst.delete(username);
+                    System.out.println("Account deleted successfully");
+                }
+            }
             catch(Exception e){System.out.println("Sorry, this account does not exist.");}
         }
 

@@ -4,7 +4,7 @@ package testing;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
-public class ReadTXT {
+public class testing {
 
     static boolean isBlank(String string){
         if (string == null || string.isEmpty()) {return true;}

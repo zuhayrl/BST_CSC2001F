@@ -120,7 +120,8 @@ public class TikTok {//start of program
         //bst code
         //check if the account exists
 
-        try{bst.find(username).displayPosts();}
+        try{bst.find(username).displayPosts();
+        System.out.println("Post added successfully");}
         catch(Exception e) {System.out.println("Sorry, this account does not exist.");}
 
         //display menu

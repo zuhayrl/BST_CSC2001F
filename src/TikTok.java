@@ -253,7 +253,7 @@ public class TikTok {//start of program
         System.out.println("4. Delete an account");
         System.out.println("5. Display all posts for a single account");
         System.out.println("6. Add a new post for an account");
-        System.out.println("7. Load a file of actions from disk and process ths");
+        System.out.println("7. Load a file of actions from disk and process it");
         System.out.println("8. Quit");
 
         System.out.print("Enter your choice: ");

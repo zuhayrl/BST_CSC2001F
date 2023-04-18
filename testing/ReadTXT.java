@@ -6,6 +6,19 @@ import java.io.FileReader;
 
 public class ReadTXT {
 
+    static boolean isBlank(String string){
+        if (string == null || string.isEmpty()) {return true;}
+
+        for (int i = 0; i < string.length(); i++){
+            char c = string.charAt(i);
+
+            if (c != ' ' && c != '\t'){return false;}
+        }
+
+        return true;
+    }
+
+
     static void load_action(){
         System.out.println("Load from textfile");
 
@@ -61,7 +74,17 @@ public class ReadTXT {
     }
 
     public static void main(String[] args){
-        load_action();
+        //load_action();
+        String  str = "";
+        System.out.println(isBlank(str));
+        str = "\t";
+        System.out.println(isBlank(str));
+        str = "   ";
+        System.out.println(isBlank(str));
+        str = "4";
+        System.out.println(isBlank(str));
+        
+
         
 
     }
